@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="container">
+    <h1>TODO</h1> 
+
+    <div id="feedback"></div>
+
+    <div class="layout">
+
+        <section class="card">
+            <h2>Dodaj zadanie</h2>
+
+            <form id="taskForm">
+                <label>
+                    Tytuł
+                    <input type="text" id="title" required>
+                </label>
+
+                <label>
+                    Opis
+                    <textarea id="description"></textarea>
+                </label>
+
+                <button type="submit">Dodaj</button>
+            </form>
+
+            <hr>
+
+            <h2>Szukaj</h2>
+
+            <input type="text" id="searchInput" placeholder="Szukaj po tytule lub opisie">
+
+            <label class="checkbox-row">
+                <input type="checkbox" id="onlyUndone">
+                Pokaż tylko nieukończone
+            </label>
+
+            <button id="searchBtn">Szukaj</button>
+            <button id="clearBtn">Wyczyść filtry</button>
+        </section>
+
+        <section class="card">
+            <h2>Lista zadań</h2>
+
+            <p id="resultInfo"></p>
+
+            <ul id="taskList"></ul>
+
+            <div class="pagination">
+                <button id="prevBtn">&#8592; Poprzednia</button>
+                <span id="pageInfo"></span>
+                <button id="nextBtn">Następna &#8594;</button>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="card" id="editPanel" style="display: none;">
+        <h2>Edytuj zadanie</h2>
+
+        <form id="editForm">
+            <input type="hidden" id="editId">
+
+            <label>
+                Tytuł
+                <input type="text" id="editTitle">
+            </label>
+
+            <label>
+                Opis
+                <textarea id="editDescription"></textarea>
+            </label>
+
+            <label class="checkbox-row">
+                <input type="checkbox" id="editDone">
+                Zadanie wykonane
+            </label>
+
+            <button type="submit">Zapisz</button>
+            <button type="button" onclick="closeEdit()">Anuluj</button>
+        </form>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
